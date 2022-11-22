@@ -155,7 +155,7 @@ async function upsertData(csvFile, keyField, edgeGrid, namespace, group, paramet
 
 async function main() {
   const argv = yargs(process.argv.slice(2))
-    .usage('Usage: $0 --csv <csvfile> --key <keycolumn>  --namespace <kvnamespace> --group <kvgroup>')
+    .usage('Usage: $0 --csv <csvfile> --key <keycolumn>  --namespace <kvnamespace> --group <kvgroup> --network <network>')
     .option('namespace', {
         description: 'EdgeKV namespace where data should be stored. This namespace will be created if it does not exist',
     })
@@ -171,6 +171,9 @@ async function main() {
     .option('generateToken', {
         description: 'If this option is specified, a KV access token will be generated',
         type: 'boolean'
+    })
+    .option('network', {
+        description: 'Push to Staging or Production'
     })
     .option('account-key', {
         description: 'Account Switch Key'
